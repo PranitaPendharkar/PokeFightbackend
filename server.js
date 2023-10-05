@@ -14,12 +14,20 @@ const {
   getOnePokemon,
   getAdditionalInfo,
 } = require("./controllers/Pokedex");
+const connectDB = require("./dbinit");
+connectDB();
+const users = require("./routes/User");
+
+// const pokemon = require("./routes/Pokedex");
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/pokemons/info/:id", getAdditionalInfo);
 
 app.use("/pokemons/:id", getOnePokemon);
 
 app.use("/pokemons", getAllPokes);
+
+app.use("/users", users);
 
 app.listen(PORT, () => {
   console.log(`connected to localhost:${PORT}`);
