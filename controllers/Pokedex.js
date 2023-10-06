@@ -29,7 +29,7 @@ const getAdditionalInfo = async (req, res) => {
       `https://pokeapi.co/api/v2/pokemon/${foundName}`
     ).then((data) => data.json());
 
-    res.send(raw);
+    res.send(raw.sprites.other.home);
   } catch (err) {
     res.status(500).json(":((((");
   }
