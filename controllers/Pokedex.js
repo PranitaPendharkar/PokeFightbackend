@@ -25,6 +25,11 @@ const getAdditionalInfo = async (req, res) => {
     const found = data.find((item) => item.id == id);
     const foundName = found.name.english.toLowerCase();
 
+    // const nameArray = foundName.split(" ");
+    if (foundName.includes(" ")) {
+      foundName.replace(" ", "-");
+    }
+
     const raw = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${foundName}`
     ).then((data) => data.json());
