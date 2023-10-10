@@ -45,7 +45,8 @@ const createUser = async (req, res) => {
     });
     await newUser.save();
 
-    res.status(201).json({ msg: `${newUser.username} is created` });
+    // res.status(201).json({ msg: `${newUser.username} is created` });
+    res.status(201).json(newUser);
   } catch (err) {
     res.status(500).json({ error: "Failed to create new user data" });
   }
