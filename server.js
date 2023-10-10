@@ -7,7 +7,11 @@ app.use(express.json());
 require("cors");
 const PORT = 8080;
 const cors = require("cors");
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 const data = require("./assets/pokedex.json");
 const {
   getAllPokes,
