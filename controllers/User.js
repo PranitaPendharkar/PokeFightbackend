@@ -65,8 +65,8 @@ const updateUser = async (req, res) => {
         game_lost,
         game_won,
         score,
-      },
-      { new: true }
+      }
+      // { new: true }
     );
 
     if (user) {
